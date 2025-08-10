@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 }
 
 export default function ServicesPage() {
+  const srevicePagination  = true;
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -29,7 +30,7 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <ServicesGrid />
+      <ServicesGrid srevicePagination={srevicePagination}/>
       <ProcessTimeline />
       <ServiceBookingCTA />
     </div>

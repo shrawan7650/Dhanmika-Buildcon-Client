@@ -51,7 +51,7 @@ export function MapSection() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div>
                 <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                <p className="text-gray-600">+1 (555) 123-4567</p>
+                <p className="text-gray-600">info@dhanmikabuildcon.com</p>
               </div>
               <div>
                 <h4 className="font-semibold text-gray-900 mb-1">Email</h4>

@@ -138,7 +138,7 @@ export function FeaturedServices() {
                         variant="ghost"
                         className="w-full group-hover:bg-amber-600 group-hover:text-white transition-colors"
                       >
-                        <Link href={`/services/${service.title.toLowerCase().replace(/\s+/g, "-")}`}>
+                        <Link href={`/services`}>
                           Learn More
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </Link>

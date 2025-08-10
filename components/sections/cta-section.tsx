@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 
 export function CTASection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+    <section className="relative py-20 overflow-hidden text-white bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div
@@ -18,16 +18,16 @@ export function CTASection() {
         />
       </div>
 
-      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative max-w-4xl px-4 mx-auto text-center sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-6">Ready to Transform Your Space?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <h2 className="mb-6 text-3xl font-bold md:text-5xl font-playfair">Ready to Transform Your Space?</h2>
+          <p className="max-w-2xl mx-auto mb-8 text-xl text-gray-300">
             Let's bring your vision to life. Schedule a consultation with our expert design team and discover how we can
             create the perfect space for you.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button asChild size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 text-lg">
+          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button asChild size="lg" className="px-8 py-3 text-lg text-white bg-amber-600 hover:bg-amber-700">
               <Link href="/contact">
                 Start Your Project
                 <ArrowRight className="w-5 h-5 ml-2" />
@@ -38,7 +38,7 @@ export function CTASection() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3 text-lg bg-transparent"
+              className="px-8 py-3 text-lg text-white bg-transparent border-white hover:bg-white hover:text-gray-900"
             >
               <Link href="tel:+1234567890">
                 <Phone className="w-5 h-5 mr-2" />
@@ -46,17 +46,17 @@ export function CTASection() {
               </Link>
             </Button>
           </div>
-
-          <div className="mt-12 pt-8 border-t border-white/20">
-            <p className="text-gray-400 mb-4">Trusted by leading brands and homeowners</p>
-            <div className="flex justify-center items-center space-x-8 opacity-60">
-              {/* Client logos would go here */}
+{/* 
+          <div className="pt-8 mt-12 border-t border-white/20">
+            <p className="mb-4 text-gray-400">Trusted by leading brands and homeowners</p>
+            <div className="flex items-center justify-center space-x-8 opacity-60">
+    
               <div className="text-2xl font-bold">BRAND</div>
               <div className="text-2xl font-bold">BRAND</div>
               <div className="text-2xl font-bold">BRAND</div>
               <div className="text-2xl font-bold">BRAND</div>
             </div>
-          </div>
+          </div> */}
         </motion.div>
       </div>
     </section>

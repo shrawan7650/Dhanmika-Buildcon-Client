@@ -18,8 +18,11 @@ export function ContactInfo() {
           </div>
           <div>
             <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-            <p className="text-gray-600">+1 (555) 123-4567</p>
-            <p className="text-sm text-gray-500">Mon-Fri 9AM-6PM EST</p>
+            <p className="text-gray-600">+9386023587</p>
+            <p className="text-sm text-gray-500">Monday - Saturday: 9:00 AM - 7:00 PM</p>
+            <p className="text-sm text-gray-500">Sunday: 10:00 AM - 5:00 PM
+
+</p>
           </div>
         </div>
 
@@ -29,7 +32,7 @@ export function ContactInfo() {
           </div>
           <div>
             <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-            <p className="text-gray-600">hello@luxeinteriors.com</p>
+            <p className="text-gray-600">info@dhanmikabuildcon.com</p>
             <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
           </div>
         </div>
@@ -41,9 +44,10 @@ export function ContactInfo() {
           <div>
             <h4 className="font-semibold text-gray-900 mb-1">Office</h4>
             <p className="text-gray-600">
-              123 Design Street
+            Priyadarshi Nagar, DPS More,
+Bailey Road
               <br />
-              New York, NY 10001
+              Patna - 801503
             </p>
             <p className="text-sm text-gray-500">By appointment only</p>
           </div>
@@ -55,9 +59,9 @@ export function ContactInfo() {
           </div>
           <div>
             <h4 className="font-semibold text-gray-900 mb-1">Business Hours</h4>
-            <p className="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</p>
-            <p className="text-gray-600">Saturday: 10:00 AM - 4:00 PM</p>
-            <p className="text-gray-600">Sunday: Closed</p>
+            <p className="text-gray-600">Monday - Saturday: 9:00 AM - 6:00 PM</p>
+            <p className="text-gray-600">Sunday: 10:00 AM - 5:00 PM</p>
+           
           </div>
         </div>
       </div>

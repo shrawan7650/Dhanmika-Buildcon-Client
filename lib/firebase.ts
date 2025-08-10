@@ -41,6 +41,7 @@ export interface Project {
   description: string
   images: string[]
   duration: number
+
   durationType: "days" | "weeks" | "months" | "years"
   budget: {
     currency: "INR" | "USD"
@@ -164,23 +165,62 @@ export async function getFeaturedProjects(): Promise<Project[]> {
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
   try {
-    const projectsRef = collection(db, "projects")
-    const q = query(projectsRef, where("slug", "==", slug))
-    const snapshot = await getDocs(q)
+    const projectsRef = collection(db, "projects");
+    const q = query(projectsRef, where("slug", "==", slug));
+    const snapshot = await getDocs(q);
 
-    if (snapshot.empty) return null
+    if (snapshot.empty) return null;
 
-    const doc = snapshot.docs[0]
-    return {
+    const docSnap = snapshot.docs[0];
+    const projectData = docSnap.data();
+
+    // Fetch category document
+    const categoryRef = doc(db, "categories", projectData.category);
+    const categorySnap = await getDoc(categoryRef);
+    const category = categorySnap.exists() ? categorySnap.data() : null;
+
+    // Fetch service document
+    const serviceRef = doc(db, "services", projectData.service);
+    const serviceSnap = await getDoc(serviceRef);
+    const service = serviceSnap.exists() ? serviceSnap.data() : null;
+
+    // Fetch subcategories
+    const subcategoriesData = await Promise.all(
+      (projectData.subcategories || []).map(async (subcatId: string) => {
+        const subcatRef = doc(db, "subcategories", subcatId);
+        const subcatSnap = await getDoc(subcatRef);
+        return subcatSnap.exists()
+          ? { id: subcatId, ...subcatSnap.data() }
+          : null;
+      })
+    );
+
+    // Fetch all testimonials linked to this project
+    const testimonialQ = query(
+      collection(db, "testimonials"),
+      where("linkedProject", "==", docSnap.id)
+    );
+    const testimonialSnap = await getDocs(testimonialQ);
+    const testimonials = testimonialSnap.docs.map(doc => ({
       id: doc.id,
       ...doc.data(),
-      createdAt: doc.data().createdAt?.toDate() || new Date(),
-    } as Project
+    }));
+
+    return {
+      id: docSnap.id,
+      ...projectData,
+      createdAt: projectData.createdAt?.toDate() || new Date(),
+      category: category ? { id: projectData.category, ...category } : null,
+      service: service ? { id: projectData.service, ...service } : null,
+      subcategories: subcategoriesData.filter(Boolean),
+      testimonials, // array of testimonials
+    } as unknown as Project;
   } catch (error) {
-    console.error("Error fetching project:", error)
-    return null
+    console.error("Error fetching project with details:", error);
+    return null;
   }
 }
+
 
 export async function getCategories(): Promise<Category[]> {
   try {
@@ -332,9 +372,10 @@ export async function submitContact(contactData: Omit<Contact, "id">): Promise<v
   }
 }
 
-export async function submitBooking(bookingData: Omit<Contact, "id">): Promise<void> {
+export async function submitBooking(bookingData:any): Promise<void> {
   try {
-    const contactsRef = collection(db, "contacts")
+    console.log("Booking Data:", bookingData)
+    const contactsRef = collection(db, "serviceBookings")
     await addDoc(contactsRef, {
       ...bookingData,
       createdAt: new Date(),

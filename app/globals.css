@@ -83,3 +83,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* hide scroolbar */
+@layer base {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer and Edge */
+  }
+}

@@ -68,9 +68,9 @@ export function CompanyOverview() {
           >
             <div className="relative overflow-hidden rounded-2xl">
               <img
-                src="/placeholder.svg?height=600&width=500"
+                src="https://res.cloudinary.com/dmmnkipms/image/upload/v1754066639/projects/jiqkeycjinvyvk6nitsd.jpg"
                 alt="Luxe Interiors Design Studio"
-                className="w-full h-[600px] object-cover"
+                className="w-full h-[500px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
