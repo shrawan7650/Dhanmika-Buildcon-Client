@@ -21,7 +21,6 @@ const footerLinks = {
   legal: [
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
-    { name: "Refund Policy", href: "/refund" },
   ],
 }
 
@@ -33,12 +32,12 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">D</span>
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-bold font-playfair leading-tight">Dhanmika Buildcon</span>
-                <span className="text-xs text-red-400">We Shape Your Dream Home</span>
+                <span className="text-xs text-blue-400">We Shape Your Dream Home</span>
               </div>
             </div>
             <p className="text-gray-400 mb-6 text-sm">
@@ -113,7 +112,7 @@ export function Footer() {
               </div>
             </div>
 
-            <div>
+            {/* <div>
               <h4 className="text-sm font-semibold mb-2">Get Updates</h4>
               <div className="flex space-x-2">
                 <Input
@@ -123,7 +122,7 @@ export function Footer() {
                 />
                 <Button className="bg-red-600 hover:bg-red-700 text-sm px-4">Subscribe</Button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 

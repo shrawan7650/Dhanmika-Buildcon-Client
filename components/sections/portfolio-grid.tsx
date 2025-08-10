@@ -21,7 +21,7 @@ export function PortfolioGrid({ categoryFilter }: PortfolioGridProps) {
   const [categories, setCategories] = useState<Record<string, Category>>({})
   const [services, setServices] = useState<Record<string, Service>>({})
   const [loading, setLoading] = useState(true)
-  const [visibleCount, setVisibleCount] = useState(12)
+  const [visibleCount, setVisibleCount] = useState(10)
 
   const filters = useSelector((state: RootState) => state.projects.filters)
 
@@ -199,7 +199,7 @@ export function PortfolioGrid({ categoryFilter }: PortfolioGridProps) {
                               variant={project.status === "completed" ? "default" : "secondary"}
                               className={
                                 project.status === "completed"
-                                  ? "bg-green-600 hover:bg-green-700"
+                                  ? "bg-green-600 "
                                   : "bg-yellow-600 hover:bg-yellow-700"
                               }
                             >
@@ -208,11 +208,11 @@ export function PortfolioGrid({ categoryFilter }: PortfolioGridProps) {
                           </div>
 
                           {/* Featured Badge */}
-                          {project.featured && (
+                          {/* {project.featured && (
                             <div className="absolute top-3 right-3">
                               <Badge className="bg-red-600 hover:bg-red-700">Featured</Badge>
                             </div>
-                          )}
+                          )} */}
                         </div>
 
                         <div className="p-4 flex-1 flex flex-col">

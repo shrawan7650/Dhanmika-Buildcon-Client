@@ -16,6 +16,10 @@ interface RelatedProjectsProps {
 export function RelatedProjects({ categoryId, excludeId }: RelatedProjectsProps) {
   const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
+   console.log("Category ID:", categoryId)
+  console.log("Exclude ID:", excludeId)
+  console.log("Related Projects Component Rendered")
+  console.log("Projects State:", projects)
 
   useEffect(() => {
     const fetchRelatedProjects = async () => {
@@ -69,7 +73,20 @@ export function RelatedProjects({ categoryId, excludeId }: RelatedProjectsProps)
   }
 
   if (projects.length === 0) {
-    return null
+    return (
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold font-playfair mb-4">No Related Projects Found</h2>
+          <p className="text-xl text-gray-600">Explore our portfolio for more amazing designs</p>
+          <Button asChild variant="outline" size="lg" className="mt-8">
+            <Link href="/portfolio">
+              View All Projects
+              <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+    )
   }
 
   return (

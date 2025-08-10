@@ -6,6 +6,7 @@ import { StatsSection } from "@/components/sections/stats-section"
 import { CTASection } from "@/components/sections/cta-section"
 import { CompanyOverview } from "@/components/sections/company-overview"
 import type { Metadata } from "next"
+import { ServicesGrid } from "@/components/sections/services-grid"
 
 export const metadata: Metadata = {
   title: "Home",
@@ -24,7 +25,8 @@ export default function HomePage() {
     <>
       <Hero />
       <CompanyOverview />
-      <FeaturedServices />
+      {/* <FeaturedServices /> */}
+      <ServicesGrid/>
       <FeaturedProjects />
       <StatsSection />
       <TestimonialsCarousel />

@@ -1,6 +1,5 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Menu } from "lucide-react"
@@ -10,7 +9,7 @@ import { cn } from "@/lib/utils"
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
+  // { name: "About", href: "/about" },
   { name: "Services", href: "/services" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Get Quote", href: "/get-quote" },
@@ -18,63 +17,42 @@ const navigation = [
 ]
 
 export function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const pathname = usePathname()
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
-
   return (
-    <header
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent",
-      )}
-    >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 lg:h-20">
+    <header className="fixed top-0 z-50 w-full bg-white rounded-b-lg shadow-sm">
+      <nav className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-10 lg:h-14 round">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">D</span>
+            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700">
+              <span className="text-lg font-bold text-white">D</span>
             </div>
-            <div className="flex flex-col">
-              <span
-                className={cn(
-                  "text-lg font-bold font-playfair transition-colors leading-tight",
-                  isScrolled ? "text-gray-900" : "text-white",
-                )}
-              >
+            <div className="flex flex-col leading-tight">
+              <span className="text-lg font-bold text-gray-900 font-playfair">
                 Dhanmika Buildcon
               </span>
-              <span
-                className={cn("text-xs font-medium transition-colors", isScrolled ? "text-red-600" : "text-red-300")}
-              >
+              <span className="text-xs font-medium text-blue-600">
                 We Shape Your Dream Home
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="items-center hidden space-x-8 lg:flex">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-red-600",
-                  pathname === item.href ? "text-red-600" : isScrolled ? "text-gray-900" : "text-white",
+                  pathname === item.href ? "text-red-600" : "text-gray-700",
                 )}
               >
                 {item.name}
               </Link>
             ))}
-            <Button asChild className="bg-red-600 hover:bg-red-700 text-white">
+            <Button asChild className="text-white bg-red-600 hover:bg-red-700">
               <Link href="tel:+919386023587">Call Now</Link>
             </Button>
           </div>
@@ -82,17 +60,13 @@ export function Navigation() {
           {/* Mobile Navigation */}
           <Sheet>
             <SheetTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className={cn("lg:hidden", isScrolled ? "text-gray-900" : "text-white")}
-              >
-                <Menu className="h-6 w-6" />
+              <Button variant="ghost" size="icon" className="text-gray-700 lg:hidden">
+                <Menu className="w-6 h-6" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-              <div className="flex flex-col space-y-4 mt-8">
+              <div className="flex flex-col mt-8 space-y-4">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
@@ -105,7 +79,7 @@ export function Navigation() {
                     {item.name}
                   </Link>
                 ))}
-                <Button asChild className="bg-red-600 hover:bg-red-700 text-white mt-4">
+                <Button asChild className="mt-4 text-white bg-red-600 hover:bg-red-700">
                   <Link href="tel:+919386023587">Call Now</Link>
                 </Button>
               </div>

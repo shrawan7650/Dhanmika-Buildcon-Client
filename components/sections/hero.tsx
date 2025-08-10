@@ -7,9 +7,9 @@ import { Play, ChevronDown } from "lucide-react"
 import { motion } from "framer-motion"
 
 const heroImages = [
-  "/placeholder.svg?height=800&width=1200",
-  "/placeholder.svg?height=800&width=1200",
-  "/placeholder.svg?height=800&width=1200",
+  "https://res.cloudinary.com/dmmnkipms/image/upload/v1754139384/projects/o7seprledzh1p01a09vr.jpg",
+  "https://res.cloudinary.com/dmmnkipms/image/upload/v1754139204/projects/onq5az02avhsvlqxj8y0.jpg",
+  "https://res.cloudinary.com/dmmnkipms/image/upload/v1754114839/services/esqcif61c4rf1y7ay501.jpg",
 ]
 
 export function Hero() {
@@ -23,12 +23,12 @@ export function Hero() {
   }, [])
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative md:mt-12 h-screen flex items-center justify-center overflow-hidden">
       {/* Background Images */}
       {heroImages.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 transition-opacity duration-1000 ${
+          className={`absolute inset-0  transition-opacity duration-1000 ${
             index === currentImage ? "opacity-100" : "opacity-0"
           }`}
         >

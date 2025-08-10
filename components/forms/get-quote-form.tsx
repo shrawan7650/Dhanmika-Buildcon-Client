@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
-import { CheckCircle, Upload } from "lucide-react"
+import { CheckCircle, Upload } from 'lucide-react'
 import { cn } from "@/lib/utils"
 import { submitContact } from "@/lib/firebase"
 import { toast } from "@/hooks/use-toast"
@@ -49,10 +49,10 @@ const projectSizes = [
 ]
 
 const budgetRanges = [
-  "₹5 Lakh - ₹15 Lakh",
-  "₹15 Lakh - ₹30 Lakh",
-  "₹30 Lakh - ₹50 Lakh",
-  "₹50 Lakh - ₹1 Crore",
+  "₹10000 - ₹ 50000",
+  "₹1 Lakh - ₹5Lakh",
+  "₹6 Lakh - ₹20 Lakh",
+  "₹20 Lakh - ₹1 Crore",
   "₹1 Crore+",
 ]
 
@@ -87,10 +87,13 @@ export function GetQuoteForm() {
   const onSubmit = async (data: QuoteFormData) => {
     setIsSubmitting(true)
     try {
+      // Store in Firebase
       await submitContact({
-        ...data,
-        services: selectedServices.join(", "),
-        message: `Project Type: ${data.projectType}\nProject Size: ${data.projectSize}\nBudget: ${data.budget}\nTimeline: ${data.timeline}\nServices: ${selectedServices.join(", ")}\n\nDescription: ${data.projectDescription}`,
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        projectAddress: data.projectAddress,
+        message: `Project Type: ${data.projectType}\nProject Size: ${data.projectSize}\nBudget: ${data.budget}\nTimeline: ${data.timeline}\nServices: ${selectedServices.join(", ")}\n\nDescription: ${data.projectDescription}\n\nHas Plans: ${data.hasPlans ? "Yes" : "No"}\nNeed Financing: ${data.needFinancing ? "Yes" : "No"}`,
         status: "pending",
         createdAt: new Date(),
       })
@@ -103,6 +106,7 @@ export function GetQuoteForm() {
         description: "We'll contact you within 24 hours with a detailed quote.",
       })
     } catch (error) {
+      console.error("Error submitting quote:", error)
       toast({
         title: "Error",
         description: "Something went wrong. Please try again.",
@@ -124,14 +128,14 @@ export function GetQuoteForm() {
 
   if (isSubmitted) {
     return (
-      <div className="text-center py-8 bg-green-50 rounded-xl">
-        <CheckCircle className="w-16 h-16 text-green-600 mx-auto mb-4" />
+      <div className="text-center py-8 bg-success-50 rounded-xl border border-success-200">
+        <CheckCircle className="w-16 h-16 text-success-600 mx-auto mb-4" />
         <h3 className="text-xl font-bold mb-2">Quote Request Submitted!</h3>
-        <p className="text-gray-600 mb-4">
+        <p className="text-neutral-600 mb-4">
           Thank you for your request. Our team will review your requirements and contact you within 24 hours with a
           detailed quote.
         </p>
-        <Button onClick={() => setIsSubmitted(false)} variant="outline">
+        <Button onClick={() => setIsSubmitted(false)} variant="outline" className="border-success-600 text-success-600 hover:bg-success-50">
           Submit Another Request
         </Button>
       </div>
@@ -144,30 +148,30 @@ export function GetQuoteForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <Label htmlFor="name">Full Name *</Label>
-          <Input id="name" {...register("name")} className={cn(errors.name && "border-red-500")} />
-          {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>}
+          <Input id="name" {...register("name")} className={cn(errors.name && "border-destructive focus-visible:ring-destructive")} />
+          {errors.name && <p className="text-sm text-destructive mt-1">{errors.name.message}</p>}
         </div>
         <div>
           <Label htmlFor="email">Email Address *</Label>
-          <Input id="email" type="email" {...register("email")} className={cn(errors.email && "border-red-500")} />
-          {errors.email && <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>}
+          <Input id="email" type="email" {...register("email")} className={cn(errors.email && "border-destructive focus-visible:ring-destructive")} />
+          {errors.email && <p className="text-sm text-destructive mt-1">{errors.email.message}</p>}
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <Label htmlFor="phone">Phone Number *</Label>
-          <Input id="phone" {...register("phone")} className={cn(errors.phone && "border-red-500")} />
-          {errors.phone && <p className="text-sm text-red-500 mt-1">{errors.phone.message}</p>}
+          <Input id="phone" {...register("phone")} className={cn(errors.phone && "border-destructive focus-visible:ring-destructive")} />
+          {errors.phone && <p className="text-sm text-destructive mt-1">{errors.phone.message}</p>}
         </div>
         <div>
           <Label htmlFor="projectAddress">Project Address *</Label>
           <Input
             id="projectAddress"
             {...register("projectAddress")}
-            className={cn(errors.projectAddress && "border-red-500")}
+            className={cn(errors.projectAddress && "border-destructive focus-visible:ring-destructive")}
           />
-          {errors.projectAddress && <p className="text-sm text-red-500 mt-1">{errors.projectAddress.message}</p>}
+          {errors.projectAddress && <p className="text-sm text-destructive mt-1">{errors.projectAddress.message}</p>}
         </div>
       </div>
 
@@ -176,7 +180,7 @@ export function GetQuoteForm() {
         <div>
           <Label htmlFor="projectType">Project Type *</Label>
           <Select onValueChange={(value) => setValue("projectType", value)}>
-            <SelectTrigger className={cn(errors.projectType && "border-red-500")}>
+            <SelectTrigger className={cn(errors.projectType && "border-destructive focus-visible:ring-destructive")}>
               <SelectValue placeholder="Select project type" />
             </SelectTrigger>
             <SelectContent>
@@ -187,12 +191,12 @@ export function GetQuoteForm() {
               ))}
             </SelectContent>
           </Select>
-          {errors.projectType && <p className="text-sm text-red-500 mt-1">{errors.projectType.message}</p>}
+          {errors.projectType && <p className="text-sm text-destructive mt-1">{errors.projectType.message}</p>}
         </div>
         <div>
           <Label htmlFor="projectSize">Project Size *</Label>
           <Select onValueChange={(value) => setValue("projectSize", value)}>
-            <SelectTrigger className={cn(errors.projectSize && "border-red-500")}>
+            <SelectTrigger className={cn(errors.projectSize && "border-destructive focus-visible:ring-destructive")}>
               <SelectValue placeholder="Select project size" />
             </SelectTrigger>
             <SelectContent>
@@ -203,7 +207,7 @@ export function GetQuoteForm() {
               ))}
             </SelectContent>
           </Select>
-          {errors.projectSize && <p className="text-sm text-red-500 mt-1">{errors.projectSize.message}</p>}
+          {errors.projectSize && <p className="text-sm text-destructive mt-1">{errors.projectSize.message}</p>}
         </div>
       </div>
 
@@ -211,7 +215,7 @@ export function GetQuoteForm() {
         <div>
           <Label htmlFor="budget">Budget Range *</Label>
           <Select onValueChange={(value) => setValue("budget", value)}>
-            <SelectTrigger className={cn(errors.budget && "border-red-500")}>
+            <SelectTrigger className={cn(errors.budget && "border-destructive focus-visible:ring-destructive")}>
               <SelectValue placeholder="Select your budget" />
             </SelectTrigger>
             <SelectContent>
@@ -222,12 +226,12 @@ export function GetQuoteForm() {
               ))}
             </SelectContent>
           </Select>
-          {errors.budget && <p className="text-sm text-red-500 mt-1">{errors.budget.message}</p>}
+          {errors.budget && <p className="text-sm text-destructive mt-1">{errors.budget.message}</p>}
         </div>
         <div>
           <Label htmlFor="timeline">Timeline *</Label>
           <Select onValueChange={(value) => setValue("timeline", value)}>
-            <SelectTrigger className={cn(errors.timeline && "border-red-500")}>
+            <SelectTrigger className={cn(errors.timeline && "border-destructive focus-visible:ring-destructive")}>
               <SelectValue placeholder="Select timeline" />
             </SelectTrigger>
             <SelectContent>
@@ -238,7 +242,7 @@ export function GetQuoteForm() {
               ))}
             </SelectContent>
           </Select>
-          {errors.timeline && <p className="text-sm text-red-500 mt-1">{errors.timeline.message}</p>}
+          {errors.timeline && <p className="text-sm text-destructive mt-1">{errors.timeline.message}</p>}
         </div>
       </div>
 
@@ -259,7 +263,7 @@ export function GetQuoteForm() {
             </div>
           ))}
         </div>
-        {errors.services && <p className="text-sm text-red-500 mt-1">{errors.services.message}</p>}
+        {errors.services && <p className="text-sm text-destructive mt-1">{errors.services.message}</p>}
       </div>
 
       {/* Project Description */}
@@ -270,9 +274,9 @@ export function GetQuoteForm() {
           rows={4}
           placeholder="Please provide detailed information about your project requirements, specific needs, preferences, etc."
           {...register("projectDescription")}
-          className={cn(errors.projectDescription && "border-red-500")}
+          className={cn(errors.projectDescription && "border-destructive focus-visible:ring-destructive")}
         />
-        {errors.projectDescription && <p className="text-sm text-red-500 mt-1">{errors.projectDescription.message}</p>}
+        {errors.projectDescription && <p className="text-sm text-destructive mt-1">{errors.projectDescription.message}</p>}
       </div>
 
       {/* Additional Options */}
@@ -294,13 +298,13 @@ export function GetQuoteForm() {
       {/* File Upload */}
       <div>
         <Label htmlFor="files">Upload Plans/Reference Images (Optional)</Label>
-        <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md hover:border-red-400 transition-colors">
+        <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-neutral-300 border-dashed rounded-md hover:border-primary-400 transition-colors">
           <div className="space-y-1 text-center">
-            <Upload className="mx-auto h-12 w-12 text-gray-400" />
-            <div className="flex text-sm text-gray-600">
+            <Upload className="mx-auto h-12 w-12 text-neutral-400" />
+            <div className="flex text-sm text-neutral-600">
               <label
                 htmlFor="file-upload"
-                className="relative cursor-pointer bg-white rounded-md font-medium text-red-600 hover:text-red-500"
+                className="relative cursor-pointer bg-white rounded-md font-medium text-primary-600 hover:text-primary-500"
               >
                 <span>Upload files</span>
                 <input
@@ -315,13 +319,13 @@ export function GetQuoteForm() {
               </label>
               <p className="pl-1">or drag and drop</p>
             </div>
-            <p className="text-xs text-gray-500">PNG, JPG, PDF, DWG up to 10MB each</p>
-            {selectedFiles && <p className="text-sm text-green-600">{selectedFiles.length} file(s) selected</p>}
+            <p className="text-xs text-neutral-500">PNG, JPG, PDF, DWG up to 10MB each</p>
+            {selectedFiles && <p className="text-sm text-success-600">{selectedFiles.length} file(s) selected</p>}
           </div>
         </div>
       </div>
 
-      <Button type="submit" disabled={isSubmitting} className="w-full bg-red-600 hover:bg-red-700 text-white py-3">
+      <Button type="submit" disabled={isSubmitting} className="w-full btn-primary py-3">
         {isSubmitting ? "Submitting..." : "Get Free Quote"}
       </Button>
     </form>
