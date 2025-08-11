@@ -7,11 +7,12 @@ import { ArrowRight, Award, Users, Clock } from "lucide-react"
 
 export function CompanyOverview() {
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <motion.div
+<section className="py-8 bg-white overflow-x-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+       {/* Content */}
+       <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -59,37 +60,39 @@ export function CompanyOverview() {
             </Button>
           </motion.div>
 
-          {/* Image */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative"
-          >
-            <div className="relative overflow-hidden rounded-2xl">
-              <img
-                src="https://res.cloudinary.com/dmmnkipms/image/upload/v1754066639/projects/jiqkeycjinvyvk6nitsd.jpg"
-                alt="Luxe Interiors Design Studio"
-                className="w-full h-[500px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-            </div>
-
-            {/* Floating Card */}
-            <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                  <span className="text-green-600 font-bold">✓</span>
-                </div>
-                <div>
-                  <div className="font-bold text-gray-900">98% Client Satisfaction</div>
-                  <div className="text-sm text-gray-600">Based on 500+ reviews</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+      {/* Image */}
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="relative"
+      >
+        <div className="relative overflow-hidden rounded-2xl">
+          <img
+            src="https://res.cloudinary.com/dmmnkipms/image/upload/v1754066639/projects/jiqkeycjinvyvk6nitsd.jpg"
+            alt="Luxe Interiors Design Studio"
+            className="w-full h-[500px] object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
         </div>
-      </div>
-    </section>
+
+        {/* Floating Card */}
+        <div className="absolute -bottom-6 left-0 lg:-left-6 bg-white p-6 rounded-xl shadow-xl w-[90%] sm:w-auto">
+          <div className="flex items-center space-x-4">
+            <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <span className="text-green-600 font-bold">✓</span>
+            </div>
+            <div>
+              <div className="font-bold text-gray-900">98% Client Satisfaction</div>
+              <div className="text-sm text-gray-600">Based on 500+ reviews</div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+    </div>
+  </div>
+</section>
+
   )
 }

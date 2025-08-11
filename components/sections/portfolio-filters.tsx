@@ -50,46 +50,39 @@ export function PortfolioFilters() {
     )
   }
 
-  return (
-    <div className="flex flex-col sm:flex-row gap-4 items-center">
-      {/* Category Filter */}
-      <div className="flex flex-wrap gap-2">
-        <Button
-          variant={filters.category === "all" ? "default" : "outline"}
-          size="sm"
-          onClick={() => handleCategoryChange("all")}
-          className={filters.category === "all" ? "bg-red-600 hover:bg-red-700" : "hover:bg-red-50 hover:text-red-600"}
-        >
-          All Projects
-        </Button>
-        {categories.map((category) => (
+  
+    return (
+      <div className="flex flex-col sm:flex-row gap-4 items-start w-full">
+        {/* Category Filter */}
+        <div className="flex sm:flex-wrap gap-2 w-full overflow-x-auto sm:overflow-visible pb-2 sm:pb-0 scrollbar-hide">
           <Button
-            key={category.id}
-            variant={filters.category === category.name.toLowerCase() ? "default" : "outline"}
+            variant={filters.category === "all" ? "default" : "outline"}
             size="sm"
-            onClick={() => handleCategoryChange(category.name.toLowerCase())}
-            className={
-              filters.category === category.name.toLowerCase()
-                ? "bg-red-600 hover:bg-red-700"
+            onClick={() => handleCategoryChange("all")}
+            className={`flex-shrink-0 ${
+              filters.category === "all"
+                ? "bg-red-600 hover:bg-red-700 text-white"
                 : "hover:bg-red-50 hover:text-red-600"
-            }
+            } ${!window.matchMedia('(min-width: 640px)').matches ? "w-full" : ""}`}
           >
-            {category.name}
+            All Projects
           </Button>
-        ))}
+          {categories.map((category) => (
+            <Button
+              key={category.id}
+              variant={filters.category === category.name.toLowerCase() ? "default" : "outline"}
+              size="sm"
+              onClick={() => handleCategoryChange(category.name.toLowerCase())}
+              className={`flex-shrink-0 ${
+                filters.category === category.name.toLowerCase()
+                  ? "bg-red-600 hover:bg-red-700 text-white"
+                  : "hover:bg-red-50 hover:text-red-600"
+              } ${!window.matchMedia('(min-width: 640px)').matches ? "w-full" : ""}`}
+            >
+              {category.name}
+            </Button>
+          ))}
+        </div>
       </div>
-
-      {/* Sort Filter */}
-      {/* <Select value={filters.sortBy} onValueChange={handleSortChange}>
-        <SelectTrigger className="w-48">
-          <SelectValue placeholder="Sort by" />
-        </SelectTrigger>
-        <SelectContent>
-          <SelectItem value="latest">Latest First</SelectItem>
-          <SelectItem value="year">By Year</SelectItem>
-          <SelectItem value="category">By Category</SelectItem>
-        </SelectContent>
-      </Select> */}
-    </div>
-  )
+    )
 }

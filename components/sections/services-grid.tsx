@@ -37,7 +37,7 @@ export function ServicesGrid({srevicePagination = false}: {srevicePagination?: b
 
   if (loading) {
     return (
-      <section className="py-20">
+      <section className="py-5">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[...Array(6)].map((_, i) => (
@@ -55,7 +55,7 @@ export function ServicesGrid({srevicePagination = false}: {srevicePagination?: b
   }
 
   return (
-    <section className="py-20">
+    <section className="py-5">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <h2 className="mb-12 text-3xl font-bold text-center font-playfair">Our Services</h2>
         <p className="mb-12 text-lg text-center text-gray-600">
