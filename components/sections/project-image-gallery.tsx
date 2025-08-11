@@ -316,7 +316,7 @@ return (
             )}
 
             {/* Main image */}
-            <div className="relative overflow-auto max-w-7xl max-h-full" onClick={(e) => e.stopPropagation()}>
+            <div className="relative z-50 overflow-auto max-w-7xl max-h-full" onClick={(e) => e.stopPropagation()}>
               <img
                 src={images[selectedImage] || "/placeholder.svg"}
                 alt={`${title} - Image ${selectedImage + 1}`}

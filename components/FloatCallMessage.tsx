@@ -1,32 +1,33 @@
 'use client';
 import React, { useState } from 'react';
 import { PhoneCall, MessageCircle, X } from 'lucide-react';
-// import { CONTACT } from './constants/contact';
+
 const CONTACT = {
   phoneMain: '+919386023587',
+  phoneEmergency: '+919386023587', // change to your emergency number
   whatsapp: '+919386023587',
 };
+
 export function FloatCallMessage() {
   const [showCallOptions, setShowCallOptions] = useState(false);
   const [showMessageOptions, setShowMessageOptions] = useState(false);
 
-  const handleCall = () => {
-    window.location.href = `tel:${CONTACT.phoneMain}`;
+  const handleCall = (number: string) => {
+    window.location.href = `tel:${number}`;
   };
 
   const handleWhatsApp = () => {
     window.open(`https://wa.me/${CONTACT.whatsapp}`, '_blank');
   };
-  
 
-  const handleSMS = () => {
-    window.location.href = `sms:${CONTACT.phoneMain}`;
+  const handleSMS = (number: string) => {
+    window.location.href = `sms:${number}`;
   };
 
   return (
     <>
-      <div className="fixed z-50 flex flex-col gap-3 bottom-6 right-6">
-        {/* Call Button with Options */}
+      <div className="fixed z-40 flex flex-col gap-3 bottom-6 right-6">
+        {/* Call Button */}
         <div className="relative">
           {showCallOptions && (
             <div className="absolute right-0 p-4 mb-3 bg-white rounded-lg shadow-lg bottom-full min-w-48">
@@ -40,8 +41,9 @@ export function FloatCallMessage() {
                 </button>
               </div>
               <div className="space-y-2">
+                {/* Main Office */}
                 <button
-                  onClick={() => handleCall()}
+                  onClick={() => handleCall(CONTACT.phoneMain)}
                   className="flex items-center w-full gap-3 p-2 text-left transition-colors rounded-lg hover:bg-gray-50"
                 >
                   <PhoneCall className="w-4 h-4 text-green-600" />
@@ -50,14 +52,15 @@ export function FloatCallMessage() {
                     <p className="text-sm text-gray-500">{CONTACT.phoneMain}</p>
                   </div>
                 </button>
+                {/* Emergency */}
                 <button
-                  onClick={() => handleCall()}
+                  onClick={() => handleCall(CONTACT.phoneEmergency)}
                   className="flex items-center w-full gap-3 p-2 text-left transition-colors rounded-lg hover:bg-gray-50"
                 >
                   <PhoneCall className="w-4 h-4 text-green-600" />
                   <div>
                     <p className="font-medium text-gray-900">Emergency</p>
-                    <p className="text-sm text-gray-500">{CONTACT.phoneMain}</p>
+                    <p className="text-sm text-gray-500">{CONTACT.phoneEmergency}</p>
                   </div>
                 </button>
               </div>
@@ -74,7 +77,7 @@ export function FloatCallMessage() {
           </button>
         </div>
 
-        {/* Message Button with Options */}
+        {/* Message Button */}
         <div className="relative">
           {showMessageOptions && (
             <div className="absolute right-0 p-4 mb-3 bg-white rounded-lg shadow-lg bottom-full min-w-48">
@@ -88,8 +91,9 @@ export function FloatCallMessage() {
                 </button>
               </div>
               <div className="space-y-2">
+                {/* WhatsApp */}
                 <button
-                  onClick={() => handleWhatsApp()}
+                  onClick={handleWhatsApp}
                   className="flex items-center w-full gap-3 p-2 text-left transition-colors rounded-lg hover:bg-gray-50"
                 >
                   <div className="flex items-center justify-center w-4 h-4 bg-green-500 rounded-full">
@@ -102,8 +106,9 @@ export function FloatCallMessage() {
                     <p className="text-sm text-gray-500">Quick response</p>
                   </div>
                 </button>
+                {/* SMS */}
                 <button
-                  onClick={() => handleSMS()}
+                  onClick={() => handleSMS(CONTACT.phoneMain)}
                   className="flex items-center w-full gap-3 p-2 text-left transition-colors rounded-lg hover:bg-gray-50"
                 >
                   <MessageCircle className="w-4 h-4 text-blue-600" />
@@ -127,10 +132,10 @@ export function FloatCallMessage() {
         </div>
       </div>
 
-      {/* Click overlay to close dropdowns */}
+      {/* Click overlay to close */}
       {(showCallOptions || showMessageOptions) && (
         <div
-          className="fixed inset-0 z-40"
+          className="fixed inset-0 z-30"
           onClick={() => {
             setShowCallOptions(false);
             setShowMessageOptions(false);

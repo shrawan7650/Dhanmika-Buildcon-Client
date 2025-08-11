@@ -40,7 +40,7 @@ const awards = [
 
 export function CertificationsSection() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50 overflow-hidden"> {/* Prevents horizontal scroll */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -48,13 +48,15 @@ export function CertificationsSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-4">Certifications & Awards</h2>
+          <h2 className="text-3xl md:text-5xl font-bold font-playfair mb-4">
+            Certifications & Awards
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Our commitment to excellence is recognized by industry leaders and professional organizations.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16"> {/* Reduced gap for small screens */}
           {/* Certifications */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -66,12 +68,15 @@ export function CertificationsSection() {
               {certifications.map((cert, index) => {
                 const Icon = cert.icon
                 return (
-                  <div key={index} className="flex items-center space-x-4 p-6 bg-white rounded-xl shadow-sm">
-                    <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
+                  <div
+                    key={index}
+                    className="flex items-center space-x-4 p-6 bg-white rounded-xl shadow-sm overflow-hidden"
+                  >
+                    <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <Icon className="w-6 h-6 text-amber-600" />
                     </div>
-                    <div className="flex-1">
-                      <h4 className="font-semibold text-gray-900">{cert.title}</h4>
+                    <div className="flex-1 min-w-0"> {/* Ensures no overflow */}
+                      <h4 className="font-semibold text-gray-900 truncate">{cert.title}</h4>
                       <p className="text-gray-600 text-sm">{cert.description}</p>
                     </div>
                     <div className="text-amber-600 font-medium text-sm">{cert.year}</div>
@@ -90,7 +95,10 @@ export function CertificationsSection() {
             <h3 className="text-2xl font-bold font-playfair mb-8">Recent Awards & Recognition</h3>
             <div className="space-y-4">
               {awards.map((award, index) => (
-                <div key={index} className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-sm">
+                <div
+                  key={index}
+                  className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-sm"
+                >
                   <div className="w-2 h-2 bg-amber-600 rounded-full mt-3 flex-shrink-0" />
                   <p className="text-gray-700 leading-relaxed">{award}</p>
                 </div>

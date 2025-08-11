@@ -53,7 +53,7 @@ export function ProjectDetailView({ project }: ProjectDetailViewProps) {
   return (
     <div className="bg-white">
       {/* Header Section */}
-      <div className="py-12 ">
+      <div className="py-0 ">
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
          
 
@@ -68,7 +68,7 @@ export function ProjectDetailView({ project }: ProjectDetailViewProps) {
 
 
       {/* Content Section */}
-      <div className="px-4 py-12 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div className="px-4 py-0 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
           {/* Main Content */}
           <div className="space-y-12 lg:col-span-2">

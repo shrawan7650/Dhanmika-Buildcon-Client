@@ -1,11 +1,22 @@
-import Link from "next/link"
-import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import Link from "next/link";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 const footerLinks = {
   services: [
-    { name: "Architectural Plans & Designs", href: "/services/architectural-plans" },
+    {
+      name: "Architectural Plans & Designs",
+      href: "/services/architectural-plans",
+    },
     { name: "Building Construction", href: "/services/building-construction" },
     { name: "Interior Design & Works", href: "/services/interior-design" },
     { name: "Building Plan Approvals", href: "/services/plan-approvals" },
@@ -22,7 +33,7 @@ const footerLinks = {
     { name: "Privacy Policy", href: "/privacy" },
     { name: "Terms of Service", href: "/terms" },
   ],
-}
+};
 
 export function Footer() {
   return (
@@ -32,29 +43,52 @@ export function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+              {/* <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-lg">D</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-lg font-bold font-playfair leading-tight">Dhanmika Buildcon</span>
-                <span className="text-xs text-blue-400">We Shape Your Dream Home</span>
+              </div> */}
+              <div className="flex flex-col leading-tight">
+                <span className="text-xl font-bold text-white">
+                  <span className="text-blue-600">D</span>hanmika Buildcon
+                </span>
+                <span className="text-xs text-blue-400">
+                  We Shape Your Dream Home
+                </span>
               </div>
             </div>
+
             <p className="text-gray-400 mb-6 text-sm">
-              Bringing Your Luxury World Class Residential Homes at the Most Affordable Price. Expert construction and
-              interior design services in Patna, Bihar.
+              Bringing Your Luxury World Class Residential Homes at the Most
+              Affordable Price. Expert construction and interior design services
+              in Patna, Bihar.
             </p>
+
             <div className="flex space-x-4">
-              <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-gray-400 hover:text-white"
+              >
                 <Facebook className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-gray-400 hover:text-white"
+              >
                 <Instagram className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-gray-400 hover:text-white"
+              >
                 <Twitter className="w-5 h-5" />
               </Button>
-              <Button variant="ghost" size="icon" className="text-gray-400 hover:text-white">
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-gray-400 hover:text-white"
+              >
                 <Linkedin className="w-5 h-5" />
               </Button>
             </div>
@@ -66,7 +100,10 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -80,7 +117,10 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-white transition-colors text-sm">
+                  <Link
+                    href={link.href}
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                  >
                     {link.name}
                   </Link>
                 </li>
@@ -98,7 +138,9 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 text-red-400 flex-shrink-0" />
-                <span className="text-gray-400 text-sm">info@dhanmikabuildcon.com</span>
+                <span className="text-gray-400 text-sm">
+                  info@dhanmikabuildcon.com
+                </span>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 text-red-400 mt-1 flex-shrink-0" />
@@ -130,7 +172,8 @@ export function Footer() {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Dhanmika Buildcon Pvt. Ltd. All rights reserved.
+              © {new Date().getFullYear()} Dhanmika Buildcon Pvt. Ltd. All
+              rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               {footerLinks.legal.map((link) => (
@@ -147,5 +190,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -92,24 +92,24 @@ export function ProjectFAQ({ project }: ProjectFAQProps) {
   const faqs = generateFAQs()
 
   return (
-    <Card className="shadow-lg border-0">
-      <CardContent className="p-8">
+    <Card className="shadow-lg ">
+      <CardContent className="p-5">
         <div className="flex items-center gap-3 mb-8">
           <HelpCircle className="w-6 h-6 text-blue-600" />
-          <h2 className="text-2xl font-bold text-gray-900">
+          <h2 className="sm:text-2xl text-base  font-bold text-gray-900">
             Frequently Asked Questions
           </h2>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-2">
           {faqs.map((faq, index) => (
             <div 
               key={index}
-              className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
+              className="border w-full border-gray-200 rounded-lg overflow-hidden hover:shadow-md transition-shadow"
             >
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+                className="w-full px-3 py-2 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
               >
                 <span className="font-semibold text-gray-900 pr-4">
                   {faq.question}
@@ -122,7 +122,7 @@ export function ProjectFAQ({ project }: ProjectFAQProps) {
               </button>
               
               {openItems.includes(index) && (
-                <div className="px-6 pb-4 pt-2 border-t border-gray-100 bg-gray-50">
+                <div className="px-4 pb-4 pt-2 border-t border-gray-100 bg-gray-50">
                   <p className="text-gray-600 leading-relaxed">
                     {faq.answer}
                   </p>
