@@ -25,7 +25,7 @@ export default function HomePage() {
     <>
       <Hero />
       <CompanyOverview />
-      {/* <FeaturedServices /> */}
+     
       <ServicesGrid/>
       <FeaturedProjects />
       <StatsSection />

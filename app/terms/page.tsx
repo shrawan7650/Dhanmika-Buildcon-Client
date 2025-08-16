@@ -32,7 +32,7 @@ export default function TermsPage() {
               <h4 className="font-bold text-neutral-900 mb-4">Dhanmika Buildcon Pvt. Ltd.</h4>
               <p><strong>Registered Address:</strong> Priyadarshi Nagar, DPS More, Bailey Road, Patna - 801503, Bihar, India</p>
               <p><strong>Phone:</strong> +91 9386023587</p>
-              <p><strong>Email:</strong> info@dhanmikabuildcon.com</p>
+              <p><strong>Email:</strong> dhanmikabuildcon@gmail.com</p>
               <p><strong>Website:</strong> https://dhanmikabuildcon.com</p>
             </div>
 
@@ -62,22 +62,6 @@ export default function TermsPage() {
               <li>Project timelines are estimates and may vary due to unforeseen circumstances</li>
             </ul>
 
-            <h2>5. Payment Terms</h2>
-            <h3>5.1 Payment Schedule</h3>
-            <ul>
-              <li><strong>Advance Payment:</strong> 20-30% of total project cost</li>
-              <li><strong>Progress Payments:</strong> As per milestones defined in contract</li>
-              <li><strong>Final Payment:</strong> Upon project completion and handover</li>
-            </ul>
-
-            <h3>5.2 Payment Methods</h3>
-            <ul>
-              <li>Bank transfer (preferred method)</li>
-              <li>Cash payments (for amounts under ₹2,00,000)</li>
-              <li>Cheque payments</li>
-              <li>Online payment gateways</li>
-            </ul>
-
             <h2>6. Project Timeline and Delays</h2>
             <ul>
               <li>Project timelines are estimates based on normal working conditions</li>
@@ -92,14 +76,6 @@ export default function TermsPage() {
               <li>All work will be performed according to industry standards</li>
               <li>We use quality materials from approved suppliers</li>
               <li>Regular quality inspections during construction</li>
-            </ul>
-
-            <h3>7.2 Warranty Terms</h3>
-            <ul>
-              <li><strong>Structural Work:</strong> 5 years warranty</li>
-              <li><strong>Electrical & Plumbing:</strong> 2 years warranty</li>
-              <li><strong>Interior Work:</strong> 1 year warranty</li>
-              <li><strong>Waterproofing:</strong> 3 years warranty</li>
             </ul>
 
             <h2>8. Client Responsibilities</h2>
@@ -185,7 +161,7 @@ export default function TermsPage() {
             <div className="bg-secondary-50 p-6 rounded-xl mt-6">
               <h4 className="font-bold text-neutral-900 mb-4">Contact Details</h4>
               <p><strong>Phone:</strong> +91 9386023587</p>
-              <p><strong>Email:</strong> info@dhanmikabuildcon.com</p>
+              <p><strong>Email:</strong> dhanmikabuildcon@gmail.com</p>
               <p><strong>Address:</strong> Priyadarshi Nagar, DPS More, Bailey Road, Patna - 801503, Bihar, India</p>
               <p><strong>Business Hours:</strong> Monday - Saturday: 9:00 AM - 7:00 PM</p>
             </div>

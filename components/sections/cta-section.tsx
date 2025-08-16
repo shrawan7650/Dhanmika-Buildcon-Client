@@ -40,7 +40,7 @@ export function CTASection() {
               size="lg"
               className="px-8 py-3 text-lg text-white bg-transparent border-white hover:bg-white hover:text-gray-900"
             >
-              <Link href="tel:+9386023587">
+              <Link href="tel:+ 919386023587">
                 <Phone className="w-5 h-5 mr-2" />
                 Call Us Now
               </Link>
