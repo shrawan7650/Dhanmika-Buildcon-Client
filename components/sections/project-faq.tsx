@@ -150,7 +150,7 @@ export function ProjectFAQ({ project }: ProjectFAQProps) {
               </Button>
               <Button 
                 variant="outline"
-                onClick={() => window.open('https://wa.me/919876543210', '_blank')}
+                onClick={() => window.open('https://wa.me/9386023587', '_blank')}
                 className="border-blue-600 text-blue-600 hover:bg-blue-50"
               >
                 <MessageCircle className="w-4 h-4 mr-2" />
