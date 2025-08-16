@@ -72,14 +72,14 @@ export function Hero() {
             <Link href="/contact">Start Your Project</Link>
           </Button>
 
-          <Button
+          {/* <Button
             variant="outline"
             size="lg"
             className="border-white text-white hover:bg-white hover:text-gray-900 px-6 sm:px-8 py-3 text-base sm:text-lg bg-transparent"
           >
             <Play className="w-5 h-5 mr-2" />
             Watch Our Story
-          </Button>
+          </Button> */}
         </motion.div>
 
         {/* Stats */}
@@ -90,11 +90,11 @@ export function Hero() {
           className="grid grid-cols-3 gap-4 sm:gap-8 mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-white/20 text-center"
         >
           <div>
-            <div className="text-xl sm:text-3xl md:text-4xl font-bold text-amber-400">500+</div>
+            <div className="text-xl sm:text-3xl md:text-4xl font-bold text-amber-400">100+</div>
             <div className="text-xs sm:text-sm text-gray-300">Projects</div>
           </div>
           <div>
-            <div className="text-xl sm:text-3xl md:text-4xl font-bold text-amber-400">12+</div>
+            <div className="text-xl sm:text-3xl md:text-4xl font-bold text-amber-400">5+</div>
             <div className="text-xs sm:text-sm text-gray-300">Years</div>
           </div>
           <div>

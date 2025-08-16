@@ -33,7 +33,7 @@ export function CompanyOverview() {
                 <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mx-auto mb-2">
                   <Award className="w-6 h-6 text-amber-600" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900">25+</div>
+                <div className="text-2xl font-bold text-gray-900">5+</div>
                 <div className="text-sm text-gray-600">Awards Won</div>
               </div>
               <div className="text-center">
@@ -47,7 +47,7 @@ export function CompanyOverview() {
                 <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mx-auto mb-2">
                   <Clock className="w-6 h-6 text-amber-600" />
                 </div>
-                <div className="text-2xl font-bold text-gray-900">12+</div>
+                <div className="text-2xl font-bold text-gray-900">5+</div>
                 <div className="text-sm text-gray-600">Years Experience</div>
               </div>
             </div>
@@ -84,7 +84,7 @@ export function CompanyOverview() {
             </div>
             <div>
               <div className="font-bold text-gray-900">98% Client Satisfaction</div>
-              <div className="text-sm text-gray-600">Based on 500+ reviews</div>
+              <div className="text-sm text-gray-600">Based on 100+ reviews</div>
             </div>
           </div>
         </div>

@@ -9,28 +9,28 @@ const processSteps = [
     title: "Discovery & Consultation",
     description:
       "We start by understanding your vision, lifestyle, and requirements through detailed consultation.",
-    duration: "1-2 weeks",
+    // duration: "1-2 weeks",
   },
   {
     icon: Palette,
     title: "Design Development",
     description:
       "Our team creates detailed design concepts, mood boards, and 3D visualizations for your approval.",
-    duration: "2-4 weeks",
+    // duration: "2-4 weeks",
   },
   {
     icon: Hammer,
     title: "Implementation",
     description:
       "We coordinate with contractors and vendors to bring your design to life with precision and care.",
-    duration: "4-12 weeks",
+    // duration: "4-12 weeks",
   },
   {
     icon: CheckCircle,
     title: "Final Reveal",
     description:
       "We add the finishing touches and reveal your transformed space, ensuring every detail is perfect.",
-    duration: "1 week",
+    // duration: "1 week",
   },
 ]
 
@@ -81,9 +81,9 @@ export function ProcessTimeline() {
                         <div className="w-12 h-12 bg-amber-600 rounded-full flex items-center justify-center mr-4">
                           <Icon className="w-6 h-6 text-white" />
                         </div>
-                        <div className="text-sm text-amber-600 font-medium">
+                        {/* <div className="text-sm text-amber-600 font-medium">
                           {step.duration}
-                        </div>
+                        </div> */}
                       </div>
                       {/* Title & description */}
                       <h3 className="text-2xl font-bold font-playfair mb-4">

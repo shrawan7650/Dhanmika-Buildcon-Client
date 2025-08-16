@@ -122,7 +122,7 @@ export default function PrivacyPage() {
               <h4 className="font-bold text-neutral-900 mb-4">Dhanmika Buildcon Pvt. Ltd.</h4>
               <p><strong>Address:</strong> Priyadarshi Nagar, DPS More, Bailey Road, Patna - 801503, Bihar, India</p>
               <p><strong>Phone:</strong> +91 9386023587</p>
-              <p><strong>Email:</strong> info@dhanmikabuildcon.com</p>
+              <p><strong>Email:</strong> dhanmikabuildcon@gmail.com</p>
               <p><strong>Website:</strong> https://dhanmikabuildcon.com</p>
             </div>
 

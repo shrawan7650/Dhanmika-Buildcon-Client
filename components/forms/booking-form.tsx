@@ -65,13 +65,13 @@ const timeSlots = [
   "5:00 PM",
 ];
 
-const budgetRanges = [
-  "₹5,000 - ₹15,000",
-  "₹15,000 - ₹30,000",
-  "₹30,000 - ₹50,000",
-  "₹50,000 - ₹100,000",
-  "₹100,000+",
-];
+// const budgetRanges = [
+//   "₹5,000 - ₹15,000",
+//   "₹15,000 - ₹30,000",
+//   "₹30,000 - ₹50,000",
+//   "₹50,000 - ₹100,000",
+//   "₹100,000+",
+// ];
 
 export function BookingForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -304,7 +304,7 @@ export function BookingForm() {
           </div>
 
           {/* Budget */}
-          <div>
+          {/* <div>
             <Label htmlFor="budget">Budget Range *</Label>
             <Select onValueChange={(value) => setValue("budget", value)}>
               <SelectTrigger className={cn(errors.budget && "border-red-500")}>
@@ -323,7 +323,7 @@ export function BookingForm() {
                 {errors.budget.message}
               </p>
             )}
-          </div>
+          </div> */}
 
           {/* Project Requirements */}
           <div>

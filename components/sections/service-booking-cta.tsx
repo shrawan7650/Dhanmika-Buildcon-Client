@@ -30,7 +30,7 @@ export function ServiceBookingCTA() {
               size="lg"
               className="border-amber-600 text-amber-600 px-8 py-3 bg-transparent"
             >
-              <Link href="tel:+1234567890">
+              <Link href="tel:+91 9386023587">
                 <Phone className="w-5 h-5 mr-2" />
                 Call Now
               </Link>

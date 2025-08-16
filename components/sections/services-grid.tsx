@@ -94,8 +94,8 @@ export function ServicesGrid({srevicePagination = false}: {srevicePagination?: b
                     </h3>
                     <p className="mb-6 text-sm leading-relaxed text-gray-600">{service.description}</p>
 
-                    <div className="mb-6 space-y-3">
-                      <div className="flex items-center justify-between text-sm">
+                    {/* <div className="mb-6 space-y-3"> */}
+                      {/* <div className="flex items-center justify-between text-sm">
                         <div className="flex items-center text-gray-500">
                           <Clock className="w-4 h-4 mr-2" />
                           Duration:
@@ -103,7 +103,7 @@ export function ServicesGrid({srevicePagination = false}: {srevicePagination?: b
                         <span className="font-medium">{service.duration}
                         {service.durationType}
                         </span>
-                      </div>
+                      </div> */}
                       {/* <div className="flex items-center justify-between text-sm">
                         <div className="flex items-center text-gray-500">
                         <span className="w-4 h-4 mr-2 text-base">₹</span>
@@ -111,7 +111,7 @@ export function ServicesGrid({srevicePagination = false}: {srevicePagination?: b
                         </div>
                         <span className="font-medium text-amber-600">{service?.priceRange && service?.priceRange.split(" - ")[0]||0}</span>
                       </div> */}
-                    </div>
+                    {/* </div> */}
 
                     {service.features && service.features.length > 0 && (
                       <div className="mb-6">

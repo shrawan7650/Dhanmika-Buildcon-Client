@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 export function MapSection() {
   return (
@@ -12,10 +12,13 @@ export function MapSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-playfair mb-4">Visit Our Studio</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-playfair mb-4">
+            Visit Our Studio
+          </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Located in the heart of the design district, our studio is where creativity comes to life. Schedule a visit
-            to see our latest projects and meet our team.
+            Located in the heart of the design district, our studio is where
+            creativity comes to life. Schedule a visit to see our latest
+            projects and meet our team.
           </p>
         </motion.div>
 
@@ -29,7 +32,11 @@ export function MapSection() {
           <div className="relative h-96 bg-gray-200 flex items-center justify-center">
             <div className="text-center">
               <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <svg
+                  className="w-8 h-8 text-white"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
                   <path
                     fillRule="evenodd"
                     d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
@@ -37,7 +44,9 @@ export function MapSection() {
                   />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Luxe Interiors Studio</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">
+                Luxe Interiors Studio
+              </h3>
               <p className="text-gray-600">
                 123 Design Street
                 <br />
@@ -51,11 +60,11 @@ export function MapSection() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div>
                 <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                <p className="text-gray-600">info@dhanmikabuildcon.com</p>
+                <p className="text-gray-600">+91 9386023587</p>
               </div>
               <div>
                 <h4 className="font-semibold text-gray-900 mb-1">Email</h4>
-                <p className="text-gray-600">hello@luxeinteriors.com</p>
+                <p className="text-gray-600">dhanmikabuildcon@gmail.com</p>
               </div>
               <div>
                 <h4 className="font-semibold text-gray-900 mb-1">Hours</h4>
@@ -66,5 +75,5 @@ export function MapSection() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
