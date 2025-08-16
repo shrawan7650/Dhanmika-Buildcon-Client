@@ -25,9 +25,9 @@ export function Navigation() {
         <div className="flex items-center justify-between h-14 lg:h-14">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <div className="md:flex items-center hidden justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700">
+            {/* <div className="md:flex items-center hidden justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700">
               <span className="text-lg font-bold text-white">D</span>
-            </div>
+            </div> */}
             <div className="flex flex-col leading-tight">
               <span className="text-lg font-bold text-gray-900 font-playfair">
                 <span className="text-blue-600 text-xl">D</span>hanmika Buildcon
