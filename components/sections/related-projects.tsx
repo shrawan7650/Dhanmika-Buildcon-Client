@@ -110,6 +110,7 @@ export function RelatedProjects({ categoryId, excludeId }: RelatedProjectsProps)
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
+              {console.log("Rendering Project:", project)}
               <Card className="group cursor-pointer transition-all duration-300 hover:shadow-xl border-0 bg-white overflow-hidden">
                 <CardContent className="p-0">
                   <div className="relative overflow-hidden">

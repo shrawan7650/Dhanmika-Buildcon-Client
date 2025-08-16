@@ -199,8 +199,8 @@ export function PortfolioGrid({ categoryFilter }: PortfolioGridProps) {
                               variant={project.status === "completed" ? "default" : "secondary"}
                               className={
                                 project.status === "completed"
-                                  ? "bg-green-600 "
-                                  : "bg-yellow-600 hover:bg-yellow-700"
+                                  ? "bg-green-400 "
+                                  : "bg-yellow-400 hover:bg-yellow-500"
                               }
                             >
                               {project.status}
@@ -217,14 +217,14 @@ export function PortfolioGrid({ categoryFilter }: PortfolioGridProps) {
 
                         <div className="p-4 flex-1 flex flex-col">
                           {/* Category */}
-                          <div className="mb-2">
+                          {/* <div className="mb-2">
                             <Badge variant="outline" className="text-xs">
                               {category?.name || "General"}
                             </Badge>
-                          </div>
+                          </div> */}
 
                           {/* Title */}
-                          <h3 className="text-lg font-bold font-playfair mb-2 group-hover:text-red-600 transition-colors line-clamp-2">
+                          <h3 className="text-lg font-bold font-playfair mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
                             {project.title}
                           </h3>
 
@@ -249,8 +249,8 @@ export function PortfolioGrid({ categoryFilter }: PortfolioGridProps) {
                           </div>
 
                           {/* Budget */}
-                          <div className="flex items-center text-sm font-medium text-red-600 mb-3">
-                            <IndianRupee className="w-4 h-4 mr-1" />
+                          <div className="flex items-center text-sm font-medium mb-3">
+                           
                             {formatBudget(project.budget)}
                           </div>
 

@@ -18,7 +18,7 @@ export function ContactInfo() {
           </div>
           <div>
             <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-            <p className="text-gray-600">+9386023587</p>
+            <p className="text-gray-600">+91 9386023587</p>
             <p className="text-sm text-gray-500">
               Monday - Saturday: 9:00 AM - 7:00 PM
             </p>

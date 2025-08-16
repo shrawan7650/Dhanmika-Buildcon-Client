@@ -32,7 +32,7 @@ export default function PortfolioPage() {
       {/* Search and Filters */}
       <section className="py-8 bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row gap-6 items-center justify-between">
+          <div className="flex flex-col lg:flex-row gap-6 items-center w-32 justify-between">
             {/* <PortfolioSearch /> */}
             <PortfolioFilters />
           </div>

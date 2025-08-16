@@ -4,22 +4,40 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, Home, Building, Palette, Lightbulb, Clock, DollarSign } from "lucide-react"
+import { ArrowRight, Home } from "lucide-react"
 import { motion } from "framer-motion"
 import { getServices, type Service } from "@/lib/firebase"
 
-const iconMap = {
-  home: Home,
-  building: Building,
-  palette: Palette,
-  lightbulb: Lightbulb,
-}
+import { 
+  Ruler,        // Architectural plans
+  Building2,    // Construction
+  Sofa,         // Interior design
+  ClipboardCheck, // Plan approvals
+  Hammer,       // Renovations
+  Droplets      // Waterproofing
+} from "lucide-react"
 
+const iconMap = {
+  architectural: Ruler,
+  construction: Building2,
+  interior: Sofa,
+  approval: ClipboardCheck,
+  renovation: Hammer,
+  waterproof: Droplets,
+}
+const iconMapByTitle: Record<string, any> = {
+  "Architectural Plans & Designs": Ruler,
+  "Building Constructions": Building2,
+  "Interior Designs & Works": Sofa,
+  "Building Plan Approvals": ClipboardCheck,
+  "Repair & Renovations": Hammer,
+  "Complete Waterproofing Work": Droplets,
+}
 export function ServicesGrid({srevicePagination = false}: {srevicePagination?: boolean
 }) {
   const [services, setServices] = useState<Service[]>([])
   const [loading, setLoading] = useState(true)
-
+   console.log("srevicePagination",srevicePagination)
   useEffect(() => {
     const fetchServices = async () => {
       try {
@@ -65,7 +83,9 @@ export function ServicesGrid({srevicePagination = false}: {srevicePagination?: b
 
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {(srevicePagination ? services : services.slice(0, 3)).map((service, index) => {
-            const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Home
+         const IconComponent = iconMapByTitle[service.title] || Building2
+
+
             console.log("service",service)
             return (
               <motion.div
@@ -93,25 +113,6 @@ export function ServicesGrid({srevicePagination = false}: {srevicePagination?: b
                       {service.title}
                     </h3>
                     <p className="mb-6 text-sm leading-relaxed text-gray-600">{service.description}</p>
-
-                    {/* <div className="mb-6 space-y-3"> */}
-                      {/* <div className="flex items-center justify-between text-sm">
-                        <div className="flex items-center text-gray-500">
-                          <Clock className="w-4 h-4 mr-2" />
-                          Duration:
-                        </div>
-                        <span className="font-medium">{service.duration}
-                        {service.durationType}
-                        </span>
-                      </div> */}
-                      {/* <div className="flex items-center justify-between text-sm">
-                        <div className="flex items-center text-gray-500">
-                        <span className="w-4 h-4 mr-2 text-base">₹</span>
-                          Starting from:
-                        </div>
-                        <span className="font-medium text-amber-600">{service?.priceRange && service?.priceRange.split(" - ")[0]||0}</span>
-                      </div> */}
-                    {/* </div> */}
 
                     {service.features && service.features.length > 0 && (
                       <div className="mb-6">

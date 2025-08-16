@@ -61,8 +61,8 @@ export function PortfolioFilters() {
             onClick={() => handleCategoryChange("all")}
             className={`flex-shrink-0 ${
               filters.category === "all"
-                ? "bg-red-600 hover:bg-red-700 text-white"
-                : "hover:bg-red-50 hover:text-red-600"
+                ? "bg-blue-600 hover:bg-blue-700 text-white"
+                : "hover:bg-blue-50 hover:blue-red-600"
             } ${!window.matchMedia('(min-width: 640px)').matches ? "w-full" : ""}`}
           >
             All Projects
@@ -75,8 +75,8 @@ export function PortfolioFilters() {
               onClick={() => handleCategoryChange(category.name.toLowerCase())}
               className={`flex-shrink-0 ${
                 filters.category === category.name.toLowerCase()
-                  ? "bg-red-600 hover:bg-red-700 text-white"
-                  : "hover:bg-red-50 hover:text-red-600"
+                  ? "bg-blue-600 hover:bg-blue-700 text-white"
+                  : "hover:bg-red-50 hover:text-red-blue"
               } ${!window.matchMedia('(min-width: 640px)').matches ? "w-full" : ""}`}
             >
               {category.name}

@@ -11,6 +11,7 @@ const navigation = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "Portfolio", href: "/portfolio" },
+  { name: "About Us", href: "/about" },
   { name: "Get Quote", href: "/get-quote" },
   { name: "Contact", href: "/contact" },
 ]
@@ -68,9 +69,6 @@ export function Navigation() {
               {/* Mobile Logo */}
               <SheetClose asChild>
                 <Link href="/" className="flex items-center space-x-3 mb-6">
-                  {/* <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-blue-700">
-                    <span className="text-lg font-bold text-white">D</span>
-                  </div> */}
                   <div className="flex flex-col leading-tight">
                   <span className="text-xl font-bold text-black">
                   <span className="text-blue-600">D</span>hanmika Buildcon

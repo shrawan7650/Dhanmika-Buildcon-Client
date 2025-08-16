@@ -16,7 +16,7 @@ export function TestimonialsCarousel() {
     const fetchTestimonials = async () => {
       try {
         const data = await getTestimonials()
-        setTestimonials(data.slice(0, 6))
+        setTestimonials(data.slice(0, 15))
       } catch (error) {
         console.error("Error fetching testimonials:", error)
       } finally {
@@ -57,7 +57,15 @@ export function TestimonialsCarousel() {
   }
 
   if (testimonials.length === 0) {
-    return null
+    return (
+      <section className="py-20 bg-gray-900 text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">No Testimonials Available</h2>
+          <p className="text-xl text-gray-300">We currently have no testimonials to display.</p>
+        </div>
+      </section>
+    )
+
   }
 
   const currentTestimonial = testimonials[currentIndex]
@@ -115,22 +123,26 @@ export function TestimonialsCarousel() {
                       />
                     ))}
                   </div>
-
                   <div className="flex items-center justify-center space-x-4">
-                    {currentTestimonial.image && (
-                      <img
-                        src={currentTestimonial.image || "/placeholder.svg"}
-                        alt={currentTestimonial.name}
-                        className="w-16 h-16 rounded-full object-cover border-2 border-amber-400"
-                      />
-                    )}
-                    <div>
-                      <div className="font-semibold text-lg">{currentTestimonial.name}</div>
-                      {currentTestimonial.linkedProject && (
-                        <div className="text-amber-400 text-sm">Verified Client</div>
-                      )}
-                    </div>
-                  </div>
+  {currentTestimonial.image ? (
+    <img
+      src={currentTestimonial.image}
+      alt={currentTestimonial.name}
+      className="w-16 h-16 rounded-full object-cover border-2 border-amber-400"
+    />
+  ) : (
+    <div className="w-16 h-16 rounded-full bg-gray-300 flex items-center justify-center border-2 border-amber-400 text-lg font-semibold text-gray-700">
+      {currentTestimonial.name?.substring(0, 3).toUpperCase()}
+    </div>
+  )}
+  <div>
+    <div className="font-semibold text-lg">{currentTestimonial.name}</div>
+    {currentTestimonial.linkedProject && (
+      <div className="text-amber-400 text-sm">Verified Client</div>
+    )}
+  </div>
+</div>
+
                 </CardContent>
               </Card>
             </motion.div>

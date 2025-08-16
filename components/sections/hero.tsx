@@ -1,29 +1,30 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Play, ChevronDown } from "lucide-react"
-import { motion } from "framer-motion"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
+import { motion } from "framer-motion";
 
 const heroImages = [
   "https://res.cloudinary.com/dmmnkipms/image/upload/v1754139384/projects/o7seprledzh1p01a09vr.jpg",
   "https://res.cloudinary.com/dmmnkipms/image/upload/v1754139204/projects/onq5az02avhsvlqxj8y0.jpg",
   "https://res.cloudinary.com/dmmnkipms/image/upload/v1754915391/postImage/zfpscbqttkqwjvgwix5g.jpg",
-]
+];
 
 export function Hero() {
-  const [currentImage, setCurrentImage] = useState(0)
+  const [currentImage, setCurrentImage] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % heroImages.length)
-    }, 5000)
-    return () => clearInterval(timer)
-  }, [])
+      setCurrentImage((prev) => (prev + 1) % heroImages.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
-    <section className="relative mt-12 min-h-[70vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative mt-12 min-h-[75vh] md:min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Images */}
       {heroImages.map((image, index) => (
         <div
@@ -32,11 +33,16 @@ export function Hero() {
             index === currentImage ? "opacity-100" : "opacity-0"
           }`}
         >
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${image})` }}
+          <Image
+            src={image}
+            alt={`Hero background ${index + 1}`}
+            fill
+            priority={index === 0}
+            loading={index === 0 ? "eager" : "lazy"}
+            className="object-cover"
           />
-          <div className="absolute inset-0 bg-black/40" />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/30" />
         </div>
       ))}
 
@@ -46,7 +52,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-playfair mb-4 sm:mb-6"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold font-playfair mb-4 sm:mb-6 leading-tight"
         >
           Transform Your Space Into
           <span className="block text-amber-400">Something Extraordinary</span>
@@ -56,9 +62,10 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-base sm:text-lg md:text-2xl mb-6 sm:mb-8 text-gray-200 max-w-2xl mx-auto"
+          className="text-sm sm:text-base md:text-xl lg:text-2xl mb-6 sm:mb-8 text-gray-200 max-w-xl mx-auto"
         >
-          Award-winning interior design services that blend luxury, functionality, and your unique vision.
+          Award-winning design & construction services that blend luxury,
+          functionality, and your unique vision.
         </motion.p>
 
         {/* Buttons */}
@@ -68,18 +75,13 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center"
         >
-          <Button asChild size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-6 sm:px-8 py-3 text-base sm:text-lg">
+          <Button
+            asChild
+            size="lg"
+            className="bg-amber-600 hover:bg-amber-700 text-white px-6 sm:px-8 py-3 text-base sm:text-lg"
+          >
             <Link href="/contact">Start Your Project</Link>
           </Button>
-
-          {/* <Button
-            variant="outline"
-            size="lg"
-            className="border-white text-white hover:bg-white hover:text-gray-900 px-6 sm:px-8 py-3 text-base sm:text-lg bg-transparent"
-          >
-            <Play className="w-5 h-5 mr-2" />
-            Watch Our Story
-          </Button> */}
         </motion.div>
 
         {/* Stats */}
@@ -87,20 +89,20 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="grid grid-cols-3 gap-4 sm:gap-8 mt-10 sm:mt-16 pt-6 sm:pt-8 border-t border-white/20 text-center"
+          className="grid grid-cols-3 gap-3 sm:gap-6 mt-8 sm:mt-12 pt-6 border-t border-white/20 text-center"
         >
-          <div>
-            <div className="text-xl sm:text-3xl md:text-4xl font-bold text-amber-400">100+</div>
-            <div className="text-xs sm:text-sm text-gray-300">Projects</div>
-          </div>
-          <div>
-            <div className="text-xl sm:text-3xl md:text-4xl font-bold text-amber-400">5+</div>
-            <div className="text-xs sm:text-sm text-gray-300">Years</div>
-          </div>
-          <div>
-            <div className="text-xl sm:text-3xl md:text-4xl font-bold text-amber-400">98%</div>
-            <div className="text-xs sm:text-sm text-gray-300">Satisfaction</div>
-          </div>
+          {[
+            { value: "100+", label: "Projects" },
+            { value: "5+", label: "Years" },
+            { value: "98%", label: "Satisfaction" },
+          ].map((stat, idx) => (
+            <div key={idx}>
+              <div className="text-lg sm:text-2xl md:text-4xl font-bold text-amber-400">
+                {stat.value}
+              </div>
+              <div className="text-xs sm:text-sm text-gray-300">{stat.label}</div>
+            </div>
+          ))}
         </motion.div>
       </div>
 
@@ -109,13 +111,13 @@ export function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2"
+        className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2"
       >
         <ChevronDown className="w-5 sm:w-6 h-5 sm:h-6 text-white animate-bounce" />
       </motion.div>
 
       {/* Image Indicators */}
-      <div className="absolute bottom-4 sm:bottom-8 right-4 sm:right-8 flex space-x-2">
+      <div className="absolute bottom-4 sm:bottom-6 right-4 sm:right-6 flex space-x-2">
         {heroImages.map((_, index) => (
           <button
             key={index}
@@ -127,5 +129,5 @@ export function Hero() {
         ))}
       </div>
     </section>
-  )
+  );
 }
