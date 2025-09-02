@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Luxe Interiors - Premium Interior Design Services",
     description: "Transform your space with our award-winning interior design services.",
-    url: "https://luxeinteriors.com",
+    url: "https://dhanmikabuildcon.com",
     images: ["/og-home.jpg"],
   },
 }
@@ -27,7 +27,7 @@ export default function HomePage() {
       <CompanyOverview />
      
       <ServicesGrid/>
-      <FeaturedProjects />
+      {/* <FeaturedProjects /> */}
       <StatsSection />
       <TestimonialsCarousel />
       <CTASection />

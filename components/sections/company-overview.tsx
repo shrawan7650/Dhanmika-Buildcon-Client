@@ -52,7 +52,7 @@ export function CompanyOverview() {
               </div>
             </div>
 
-            <Button asChild size="lg" className="bg-amber-600 hover:bg-amber-700 text-white">
+            <Button asChild size="lg" className="bg-amber-600 hover:bg-amber-700 text-center self-center text-white">
               <Link href="/about">
                 Learn More About Us
                 <ArrowRight className="w-5 h-5 ml-2" />

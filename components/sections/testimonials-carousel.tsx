@@ -57,14 +57,7 @@ export function TestimonialsCarousel() {
   }
 
   if (testimonials.length === 0) {
-    return (
-      <section className="py-20 bg-gray-900 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">No Testimonials Available</h2>
-          <p className="text-xl text-gray-300">We currently have no testimonials to display.</p>
-        </div>
-      </section>
-    )
+    return;
 
   }
 
