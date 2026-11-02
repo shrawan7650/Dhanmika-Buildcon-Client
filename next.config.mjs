@@ -16,20 +16,32 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  async rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: "/admin",
-          destination: `${ADMIN_URL}/admin`,
-        },
-        {
-          source: "/admin/:path*",
-          destination: `${ADMIN_URL}/admin/:path*`,
-        },
-      ],
-    };
-  },
+  
+async rewrites() {
+  return {
+    beforeFiles: [
+      // Admin CSS, JS and static files
+      {
+        source: "/admin/_next/:path*",
+        destination:
+          "https://dhanmika-buildcon-admin.vercel.app/_next/:path*",
+      },
+
+      // Admin pages
+      {
+        source: "/admin",
+        destination:
+          "https://dhanmika-buildcon-admin.vercel.app/admin",
+      },
+      {
+        source: "/admin/:path*",
+        destination:
+          "https://dhanmika-buildcon-admin.vercel.app/admin/:path*",
+      },
+    ],
+  };
+},
+
 };
 
 export default nextConfig;
