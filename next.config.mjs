@@ -1,14 +1,33 @@
+
 /** @type {import('next').NextConfig} */
+
+const ADMIN_URL = "https://dhanmika-buildcon-admin.vercel.app";
+
 const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+
   typescript: {
     ignoreBuildErrors: true,
   },
+
   images: {
     unoptimized: true,
   },
-}
 
-export default nextConfig
+  async rewrites() {
+    return [
+      {
+        source: "/admin",
+        destination: `${ADMIN_URL}/admin`,
+      },
+      {
+        source: "/admin/:path*",
+        destination: `${ADMIN_URL}/admin/:path*`,
+      },
+    ];
+  },
+};
+
+export default nextConfig;
