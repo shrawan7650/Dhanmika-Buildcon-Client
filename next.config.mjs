@@ -17,16 +17,18 @@ const nextConfig = {
   },
 
   async rewrites() {
-    return [
-      {
-        source: "/admin",
-        destination: `${ADMIN_URL}/admin`,
-      },
-      {
-        source: "/admin/:path*",
-        destination: `${ADMIN_URL}/admin/:path*`,
-      },
-    ];
+    return {
+      beforeFiles: [
+        {
+          source: "/admin",
+          destination: `${ADMIN_URL}/admin`,
+        },
+        {
+          source: "/admin/:path*",
+          destination: `${ADMIN_URL}/admin/:path*`,
+        },
+      ],
+    };
   },
 };
 
