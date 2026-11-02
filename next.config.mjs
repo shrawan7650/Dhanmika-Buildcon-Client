@@ -20,6 +20,11 @@ const nextConfig = {
 async rewrites() {
   return {
     beforeFiles: [
+          // Admin authentication API
+      {
+        source: "/api/setAuthCookie",
+        destination: `${ADMIN_URL}/api/setAuthCookie`,
+      },
       // Admin CSS, JS and static files
       {
         source: "/admin/_next/:path*",
